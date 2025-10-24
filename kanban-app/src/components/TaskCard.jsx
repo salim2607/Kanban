@@ -11,6 +11,7 @@ export default function TaskCard({ task, onEdit, onDelete, onMove }) {
           >
             ✏️ Modifier
           </button>
+  
           <button
             onClick={() => onDelete(task.id)}
             className="text-red-500 text-sm hover:underline"
@@ -21,17 +22,28 @@ export default function TaskCard({ task, onEdit, onDelete, onMove }) {
   
         <div className="flex justify-around mt-2">
           {task.status !== "todo" && (
-            <button onClick={() => onMove(task.id, "todo")} className="text-xs">
+            <button
+              onClick={() => onMove(task.id, "todo")}
+              className="text-xs text-gray-600 hover:text-blue-600"
+            >
               ⬅️ À faire
             </button>
           )}
+  
           {task.status !== "in-progress" && (
-            <button onClick={() => onMove(task.id, "in-progress")} className="text-xs">
+            <button
+              onClick={() => onMove(task.id, "in-progress")}
+              className="text-xs text-gray-600 hover:text-blue-600"
+            >
               ⚙️ En cours
             </button>
           )}
+  
           {task.status !== "done" && (
-            <button onClick={() => onMove(task.id, "done")} className="text-xs">
+            <button
+              onClick={() => onMove(task.id, "done")}
+              className="text-xs text-gray-600 hover:text-blue-600"
+            >
               ✅ Terminé
             </button>
           )}
