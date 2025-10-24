@@ -13,17 +13,21 @@ export default function KanbanBoard({ tasks, onEdit, onDelete, onMove }) {
         <div key={col.key} className="bg-gray-50 p-4 rounded shadow min-h-[300px]">
           <h2 className="text-lg font-semibold text-center mb-3">{col.title}</h2>
 
-          {tasks
-            .filter((t) => t.status === col.key)
-            .map((task) => (
-              <TaskCard
-                key={task.id}
-                task={task}
-                onEdit={onEdit}
-                onDelete={onDelete}
-                onMove={onMove}
-              />
-            ))}
+          {tasks.filter((t) => t.status === col.key).length === 0 ? (
+            <p className="text-center text-sm text-gray-400">Aucune tâche</p>
+          ) : (
+            tasks
+              .filter((t) => t.status === col.key)
+              .map((task) => (
+                <TaskCard
+                  key={task.id}
+                  task={task}
+                  onEdit={onEdit}
+                  onDelete={onDelete}
+                  onMove={onMove}
+                />
+              ))
+          )}
         </div>
       ))}
     </div>
