@@ -8,7 +8,7 @@ export default function KanbanBoard({ tasks, onEdit, onDelete, onMove }) {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {columns.map((col) => (
         <div key={col.key} className="bg-gray-50 p-4 rounded shadow min-h-[300px]">
           <h2 className="text-lg font-semibold text-center mb-3">{col.title}</h2>
